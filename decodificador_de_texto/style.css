@@ -1,0 +1,21 @@
+div {
+    border: 1px solid black;
+}
+.botoes {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+button {
+    margin-left: auto;
+}
+
+.center{    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
