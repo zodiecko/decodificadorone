@@ -1,5 +1,17 @@
 let texto = "pairaibenterns poberr enterncairair enterssenter dentersaifimesober enter tenterr fimesnailimeszaidober enterlenter coberm sufatcenterssober!"
 
+function limparCampo(elemento){
+    elemento.value = '';
+}
+
+function copiarParaAreaDeTrabalho() {
+    var copyText = document.getElementById("texto");
+    
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    alert("Texto copiado com sucesso!");
+}
 // É só usar replaceAll meua migo
 function trocarCaractere(caractere){
     switch (caractere) {

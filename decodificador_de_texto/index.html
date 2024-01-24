@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="style.css">
     <title>Decodificador de Textos</title>
 </head>
-<body>
-    
-    <img src="img/alura_icon.svg" width="120" height="48">
-    <div>
-        <label >Digite o Texto</label> <br>
-        <textarea id="texto" name="texto" rows="12" cols="33">pairaibenterns poberr enterncairair enterssenter dentersaifimesober enter tenterr fimesnailimeszaidober enterlenter coberm sufatcenterssober!</textarea>
-    <div class="center">
-            <button type="button" onclick="criptografar()"="criptografar">Criptografar</button>
-            &nbsp;&nbsp;&nbsp;
-            <!-- adicionar um espaço entre os botões -->
-            <button type="button" onclick="desencriptar()"="descriptografar">Descriptografar</button>
+<body>    
+    <!-- <img src="img/alura_icon.svg" width="120" height="48"> -->
+    <div class="textoEntrada">
+        <textarea placeholder="Digite aqui!" class="textAreaEntrada" id="texto" name="texto"></textarea>
+        <div class="cripButtons">
+            <label>&nbsp;(!) somente minusculo e s</label><br>
+            <button class="criptografar" type="button" onclick="criptografar()" id = "criptografar">Criptografar</button> 
+            <button  type="button" onclick="desencriptar()" id = "descriptografar">Descriptografar</button>            
+        </div>
     </div>
+    <div class="textoSaida">
+        <button onclick="copiarParaAreaDeTrabalho()" class="copiar" type="button" onclick="copiarTexto()">Copiar</button>
     </div>
     
     <script src="app.js"></script>
