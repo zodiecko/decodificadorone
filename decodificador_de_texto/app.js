@@ -1,16 +1,41 @@
-let texto = "pairaibenterns poberr enterncairair enterssenter dentersaifimesober enter tenterr fimesnailimeszaidober enterlenter coberm sufatcenterssober!"
+function modoInicial(){
+    limparCampo('copiar');
+    limparCampoTexto('textoFinal');//precisa mesmo?
+    mostraElemento('pessoaLupa');
+    mostraElemento('semTexto');
+    mostraElemento('digitarTexto');
 
-function limparCampo(elemento){
-    elemento.value = '';
 }
 
-function copiarParaAreaDeTrabalho() {
-    var copyText = document.getElementById("texto");
-    
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
-    alert("Texto copiado com sucesso!");
+function limparCampoTexto(elementoID){
+    document.getElementById(elementoID).innerHTML = '';
+}
+
+function limparCampo(elementoID){//só não mostra
+    document.getElementById(elementoID).style.display = 'none';
+}
+function mostraElemento(elementoID){
+    document.getElementById(elementoID).style.display = '';
+}
+function mostrarBotaoCopiar(){
+    document.getElementById('copiar').style.display = ''; 
+}
+
+function limparImagemETexto(){    
+    limparCampo('semTexto');    
+    limparCampo('pessoaLupa');
+    limparCampo('digitarTexto');
+}
+
+function margemTextoFinal(){
+    document.getElementById('textoFinal').style.margin = "10% 10% auto 10%";
+}
+
+function copiarParaAreaDeTransferencia() {
+    var copyText = document.getElementById("textoFinal").innerHTML;
+    navigator.clipboard.writeText(copyText);
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied: " + copyText;
 }
 // É só usar replaceAll meua migo
 function trocarCaractere(caractere){
@@ -39,30 +64,42 @@ function trocarCaractere(caractere){
             return caractere;
     }
 }
+function isTextoVazio(){
+    let valor = document.getElementById('texto').value;
+    return valor == '' || valor.trim() == '';
+}
 
-function desencriptar(){
-    let textoDesencriptografado = document.getElementById('texto').value;
+function descriptografar(){
+    limparImagemETexto();
+    mostrarBotaoCopiar();
+    margemTextoFinal();
 
-    textoDesencriptografado = textoDesencriptografado.replaceAll('ai', 'a');//pai pode virar pa
-    textoDesencriptografado = textoDesencriptografado.replaceAll('enter', 'e');    
-    textoDesencriptografado = textoDesencriptografado.replaceAll('imes', 'i');
-    textoDesencriptografado = textoDesencriptografado.replaceAll('ober', 'o');
-    textoDesencriptografado = textoDesencriptografado.replaceAll('ufat', 'u');
+    let textoDescriptografado = document.getElementById('texto').value;
 
-    document.getElementById('texto').value = textoDesencriptografado; 
+    textoDescriptografado = textoDescriptografado.replaceAll('ai', 'a');//pai pode virar pa
+    textoDescriptografado = textoDescriptografado.replaceAll('enter', 'e');    
+    textoDescriptografado = textoDescriptografado.replaceAll('imes', 'i');
+    textoDescriptografado = textoDescriptografado.replaceAll('ober', 'o');
+    textoDescriptografado = textoDescriptografado.replaceAll('ufat', 'u');
+
+    document.getElementById('textoFinal').innerHTML = textoDescriptografado; 
 
 }
 
 function criptografar(){
+    margemTextoFinal();
+    limparImagemETexto();//fazer controle de exceção, campo sem texto
+    mostrarBotaoCopiar();
+    
     let textoSplitador = document.getElementById('texto').value.split("");
-    let textoDesencriptografado = "";
+    let textoDescriptografado = "";
 
     for (let i = 0; i < textoSplitador.length; i++) {
         let caractere = textoSplitador[i];
         
         caractere = trocarCaractere(caractere);//nem todos precisam entrar aqui, melhore
 
-        textoDesencriptografado += caractere;
+        textoDescriptografado += caractere;
     }
-    document.getElementById('texto').value = textoDesencriptografado;
+    document.getElementById('textoFinal').innerHTML = textoDescriptografado;
 }

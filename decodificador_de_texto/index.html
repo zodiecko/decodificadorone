@@ -7,17 +7,30 @@
     <title>Decodificador de Textos</title>
 </head>
 <body>    
-    <!-- <img src="img/alura_icon.svg" width="120" height="48"> -->
-    <div class="textoEntrada">
+    
+    <div class="blocoEntrada">        
+        <img alt="ícone da alura" id="alura_icon" src="img/alura_icon.svg" width="120" height="48">
         <textarea placeholder="Digite aqui!" class="textAreaEntrada" id="texto" name="texto"></textarea>
+        
         <div class="cripButtons">
-            <label>&nbsp;(!) somente minusculo e s</label><br>
-            <button class="criptografar" type="button" onclick="criptografar()" id = "criptografar">Criptografar</button> 
-            <button  type="button" onclick="desencriptar()" id = "descriptografar">Descriptografar</button>            
+            <label>&nbsp;(!)Apenas letras minúsculas e sem acentos</label><br>
+            <button class="criptografar" type="button" onclick="isTextoVazio() ? modoInicial() : criptografar()" id = "criptografar">Criptografar</button> 
+            <button  type="button" onclick="isTextoVazio() ? modoInicial() : descriptografar()" id = "descriptografar">Descriptografar</button>            
         </div>
     </div>
-    <div class="textoSaida">
-        <button onclick="copiarParaAreaDeTrabalho()" class="copiar" type="button" onclick="copiarTexto()">Copiar</button>
+
+    <div class="blocoSaida" style="text-align: justify; word-wrap: break-word;">        
+        <img id="pessoaLupa" src="img/pessoa_com_lupa.svg">
+        
+        <h1 id="semTexto">Nenhuma mensagem encontrada</h1>
+        
+        <p id="digitarTexto">Digite um texto que você deseja criptografar ou descriptografar</p>
+        <!-- </span> -->
+        
+        <p class="textoFinal" id="textoFinal"></p>
+        
+        <button id="copiar" style="display: none;" onclick="copiarParaAreaDeTransferencia()" class="copiar" type="button">Copiar
+            </button>
     </div>
     
     <script src="app.js"></script>
