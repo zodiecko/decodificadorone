@@ -30,5 +30,6 @@ As "chaves" de criptografia que utilizaremos são:
 
 A página deve ter campos para inserção do texto a ser criptografado ou descriptografado, e a pessoa usuária deve poder escolher entre as duas opções. O resultado deve ser exibido na tela.
 
->**Extras**:
+>**Extras:**
+
 Um botão que copie o texto criptografado/descriptografado para a área de transferência - ou seja, que tenha a mesma funcionalidade do ctrl+C ou da opção "copiar" do menu dos aplicativos.
