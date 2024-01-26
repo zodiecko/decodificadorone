@@ -1,9 +1,9 @@
 function modoInicial(){
     limparCampo('copiar');
-    limparCampoTexto('textoFinal');//precisa mesmo?
-    mostraElemento('pessoaLupa');
-    mostraElemento('semTexto');
-    mostraElemento('digitarTexto');
+    limparCampoTexto('texto-final');//precisa mesmo?
+    mostraElemento('pessoa-com-lupa');
+    mostraElemento('sem-texto');
+    mostraElemento('digitar-texto');
 
 }
 
@@ -22,20 +22,18 @@ function mostrarBotaoCopiar(){
 }
 
 function limparImagemETexto(){    
-    limparCampo('semTexto');    
-    limparCampo('pessoaLupa');
-    limparCampo('digitarTexto');
+    limparCampo('sem-texto');    
+    limparCampo('pessoa-com-lupa');
+    limparCampo('digitar-texto');
 }
 
 function margemTextoFinal(){
-    document.getElementById('textoFinal').style.margin = "10% 10% auto 10%";
+    document.getElementById('texto-final').style.margin = "10% 10% auto 10%";
 }
 
 function copiarParaAreaDeTransferencia() {
-    var copyText = document.getElementById("textoFinal").innerHTML;
+    var copyText = document.getElementById("texto-final").innerHTML;
     navigator.clipboard.writeText(copyText);
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copied: " + copyText;
 }
 // É só usar replaceAll meua migo
 function trocarCaractere(caractere){
@@ -65,8 +63,8 @@ function trocarCaractere(caractere){
     }
 }
 function isTextoVazio(){
-    let valor = document.getElementById('texto').value;
-    return valor == '' || valor.trim() == '';
+    let valor = document.getElementById('texto-digitado').value;
+    return valor == '' || valor.trim() == '';//vazia e somente espaços em branco
 }
 
 function descriptografar(){
@@ -74,7 +72,7 @@ function descriptografar(){
     mostrarBotaoCopiar();
     margemTextoFinal();
 
-    let textoDescriptografado = document.getElementById('texto').value;
+    let textoDescriptografado = document.getElementById('texto-digitado').value;
 
     textoDescriptografado = textoDescriptografado.replaceAll('ai', 'a');//pai pode virar pa
     textoDescriptografado = textoDescriptografado.replaceAll('enter', 'e');    
@@ -82,7 +80,7 @@ function descriptografar(){
     textoDescriptografado = textoDescriptografado.replaceAll('ober', 'o');
     textoDescriptografado = textoDescriptografado.replaceAll('ufat', 'u');
 
-    document.getElementById('textoFinal').innerHTML = textoDescriptografado; 
+    document.getElementById('texto-final').innerHTML = textoDescriptografado; 
 
 }
 
@@ -91,7 +89,7 @@ function criptografar(){
     limparImagemETexto();//fazer controle de exceção, campo sem texto
     mostrarBotaoCopiar();
     
-    let textoSplitador = document.getElementById('texto').value.split("");
+    let textoSplitador = document.getElementById('texto-digitado').value.split("");
     let textoDescriptografado = "";
 
     for (let i = 0; i < textoSplitador.length; i++) {
@@ -101,5 +99,5 @@ function criptografar(){
 
         textoDescriptografado += caractere;
     }
-    document.getElementById('textoFinal').innerHTML = textoDescriptografado;
+    document.getElementById('texto-final').innerHTML = textoDescriptografado;
 }

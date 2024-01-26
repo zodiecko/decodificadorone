@@ -6,33 +6,35 @@
     <link rel="stylesheet" href="style.css">
     <title>Decodificador de Textos</title>
 </head>
-<body>    
-    
-    <div class="blocoEntrada">        
-        <img alt="ícone da alura" id="alura_icon" src="img/alura_icon.svg" width="120" height="48">
-        <textarea placeholder="Digite aqui!" class="textAreaEntrada" id="texto" name="texto"></textarea>
+<body>
+    <div class="div-pai texto">
+        <div>
+            <img class="logo" alt="ícone da alura" id="alura-icon" src="img/alura_icon.svg">
+        </div>
         
-        <div class="cripButtons">
-            <label>&nbsp;(!)Apenas letras minúsculas e sem acentos</label><br>
-            <button class="criptografar" type="button" onclick="isTextoVazio() ? modoInicial() : criptografar()" id = "criptografar">Criptografar</button> 
-            <button  type="button" onclick="isTextoVazio() ? modoInicial() : descriptografar()" id = "descriptografar">Descriptografar</button>            
+        <div class="bloco-entrada">        
+            <textarea placeholder="Digite aqui!" class="texto" id="texto-digitado" name="texto"></textarea>
+        
+            <label id="sugestao" class="texto">(!)Apenas letras minúsculas e sem acentos</label><br>
+            <div class="botoes">
+                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : criptografar()" id = "criptografar">Criptografar</button> 
+                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : descriptografar()" id = "descriptografar">Descriptografar</button>            
+            </div>
+        </div>
+
+        <div class="bloco-saida border-radius-34" style="text-align: justify; word-wrap: break-word;">        
+            <img id="pessoa-com-lupa" src="img/pessoa_com_lupa.svg">
+        
+            <h2 class="texto-centralizado" id="sem-texto">Nenhuma mensagem encontrada</h2>
+        
+            <p class="texto-centralizado" id="digitar-texto">Digite um texto que você deseja criptografar ou descriptografar</p>
+        
+            <p class="texto-final" id="texto-final"></p>
+        
+            <button class="botao" id="copiar" style="display: none;" onclick="copiarParaAreaDeTransferencia()" type="button">Copiar</button>
         </div>
     </div>
-
-    <div class="blocoSaida" style="text-align: justify; word-wrap: break-word;">        
-        <img id="pessoaLupa" src="img/pessoa_com_lupa.svg">
         
-        <h1 id="semTexto">Nenhuma mensagem encontrada</h1>
-        
-        <p id="digitarTexto">Digite um texto que você deseja criptografar ou descriptografar</p>
-        <!-- </span> -->
-        
-        <p class="textoFinal" id="textoFinal"></p>
-        
-        <button id="copiar" style="display: none;" onclick="copiarParaAreaDeTransferencia()" class="copiar" type="button">Copiar
-            </button>
-    </div>
-    
     <script src="app.js"></script>
 </body>
 </html>
