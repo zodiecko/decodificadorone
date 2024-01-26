@@ -1,4 +1,4 @@
-# one
-Oracle Next Education
+# Challange ONE
+Decodificador de Texto
 
-[Decodificador de Texto](https://zodiecko.github.io/one/)
+[Decodificador de Texto](https://zodiecko.github.io/decodificadorone/)
