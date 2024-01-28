@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +7,34 @@
     <title>Decodificador de Textos</title>
 </head>
 <body>
-    <div class="div-pai texto">
-        <div>
-            <img class="logo" alt="ícone da alura" id="alura-icon" src="assets/img/alura_icon.svg">
-        </div>
+    <main class="decodificador texto">
+        <img class="logo" alt="ícone da alura" id="alura-icon" src="assets/img/alura_icon.svg">
         
-        <div class="bloco-entrada">        
-            <textarea placeholder="Digite seu texto aqui!" class="texto" id="texto-digitado" name="texto"></textarea>
+        <section class="section-entrada">        
+            <textarea class="texto" id="texto-digitado" name="texto" placeholder="Digite seu texto aqui!"></textarea>
         
-            <label id="sugestao" class="texto">(!)Apenas letras minúsculas e sem acentos</label><br>
+            <label class="texto" id="advertencia">&#9888;Apenas letras minúsculas e sem acentos</label>
+            
             <div class="botoes">
-                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : criptografar()" id = "criptografar">Criptografar</button> 
-                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : descriptografar()" id = "descriptografar">Descriptografar</button>            
+                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : criptografar()" id = "botao-criptografar">Criptografar</button> 
+                <button class="botao" type="button" onclick="isTextoVazio() ? modoInicial() : descriptografar()" id = "botao-descriptografar">Descriptografar</button>            
             </div>
-        </div>
+        </section>
 
-        <div class="bloco-saida border-radius-34" style="text-align: justify; word-wrap: break-word;">        
+        <section class="section-saida">        
             <img id="pessoa-com-lupa" src="assets/img/pessoa-com-lupa.svg">
         
-            <h2 class="texto-centralizado" id="sem-texto">Nenhuma mensagem encontrada</h2>
+            <h2 class="texto-centralizado" id="nenhuma-mensagem">Nenhuma mensagem encontrada</h2>
         
             <p class="texto-centralizado" id="digitar-texto">Digite um texto que você deseja criptografar ou descriptografar</p>
         
             <p class="texto-final" id="texto-final"></p>
         
-            <button class="botao" id="copiar" style="display: none;" onclick="copiarParaAreaDeTransferencia()" type="button">Copiar</button>
-        </div>
-    </div>
+            <button class="botao" id="botao-copiar" style="display: none;" onclick="copiarParaAreaDeTransferencia()" type="button">Copiar</button>
+        </section>
+    </main>
+    <footer>
+    </footer>
         
     <script src="assets/js/app.js"></script>
 </body>

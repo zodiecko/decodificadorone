@@ -1,91 +1,80 @@
-.texto {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: #0A3871;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-body>div {
+.decodificador {
     background-color: #F3F5FC;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
+    align-content: space-between;
+    box-sizing: border-box;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .logo {
-}
-
-.border-radius-34{
-    border-radius: 34px;
-}
-
-#alura-icon {
     width: 78px;
-    height: 48px;
+    height: 78px;
 }
 
-#texto-digitado {
-    margin-top: auto;
-    width: 400px;
-    height: 320px;
-    margin-bottom: 10px;
-    text-align: center;
-    background-color: transparent;
-    resize: none;
-    font-size: 24px;
+.texto {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    /* font-size: 16px; */
+    color: #0A3871;
 }
-#texto-digitado::placeholder {
-    font-size: 24px;
-}
-
-#sugestao {
-    /* margin-top: auto; */
-}
-
-.bloco-entrada {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .texto-centralizado {
     text-align: center;
 }
 
-.bloco-saida {
-    max-width: 320px;
-    height: 568px;    
+.section-entrada {
+    /* background-color: antiquewhite; */
     flex: 1;
     display: flex;
     flex-direction: column;
+    /* align-content: space-between; */
+    align-items: center;
+    padding: 20px;
+}
+
+.section-saida {
+    /* box-sizing: border-box; */
+    border-radius: 34px;
+    width: 320px;
+    height: 568px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
     background-color: white;
-    margin: auto;
+    padding: 20px;
+    /* margin: 10px 20px auto auto; */
 }
 
-.texto-final {
-    width: 90%;
-    font-size: 16px;
-    /* overflow-wrap: break-word; */
-    /* padding: 20px; */
-}
-
-#pessoa-com-lupa {
-    width: 320px;
+#texto-digitado {
+    width: 400px;
     height: 320px;
-}
-.botoes {
-    /* margin-top: auto; */
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    background-color: transparent;
+    resize: none;
+    font-size: 24px;
+    padding: 20px;
 }
 
-.botao {
+#advertencia {
+    margin-top: auto;
+}
+/* .botoes { */
+    /* background-color: blueviolet; */
+    /* display: flex; */
+    /* align-content: space-between; */
+    /* padding: 20px; */
+    /* margin-top:  auto; */
+/* } */
+
+.botao {    
     background-color: white;
     width: 200px;
     height: 68px;
@@ -95,8 +84,20 @@ body>div {
     font-size: 16px;
     margin: 0 5px;
 }
-
-#criptografar {
+#botao-criptografar {
     color: white;
     background-color: #0A3871;
+}
+#nenhuma-mensagem {
+    /* margin-top: auto; */
+}
+
+#botao-copiar {
+    margin-top: auto;
+}
+.texto-final {
+    width: 90%;
+    font-size: 24px;
+    /* overflow-wrap: break-word; */
+    /* padding: 20px; */
 }

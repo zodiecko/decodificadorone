@@ -1,9 +1,9 @@
 function modoInicial(){
-    limparCampo('copiar');
+    naoMostrarCampo('botao-copiar');
     limparCampoTexto('texto-final');//precisa mesmo?
-    mostraElemento('pessoa-com-lupa');
-    mostraElemento('sem-texto');
-    mostraElemento('digitar-texto');
+    mostrarElemento('pessoa-com-lupa');
+    mostrarElemento('nenhuma-mensagem');
+    mostrarElemento('digitar-texto');
 
 }
 
@@ -11,20 +11,18 @@ function limparCampoTexto(elementoID){
     document.getElementById(elementoID).innerHTML = '';
 }
 
-function limparCampo(elementoID){//só não mostra
+function naoMostrarCampo(elementoID){
     document.getElementById(elementoID).style.display = 'none';
 }
-function mostraElemento(elementoID){
+
+function mostrarElemento(elementoID){
     document.getElementById(elementoID).style.display = '';
-}
-function mostrarBotaoCopiar(){
-    document.getElementById('copiar').style.display = ''; 
 }
 
 function limparImagemETexto(){    
-    limparCampo('sem-texto');    
-    limparCampo('pessoa-com-lupa');
-    limparCampo('digitar-texto');
+    naoMostrarCampo('nenhuma-mensagem');    
+    naoMostrarCampo('pessoa-com-lupa');
+    naoMostrarCampo('digitar-texto');
 }
 
 function margemTextoFinal(){
@@ -34,8 +32,9 @@ function margemTextoFinal(){
 function copiarParaAreaDeTransferencia() {
     var copyText = document.getElementById("texto-final").innerHTML;
     navigator.clipboard.writeText(copyText);
+    alert('Texto copiado com sucesso!');
 }
-// É só usar replaceAll meua migo
+// É só usar replaceAll
 function trocarCaractere(caractere){
     switch (caractere) {
         case 'a':            
@@ -62,6 +61,7 @@ function trocarCaractere(caractere){
             return caractere;
     }
 }
+
 function isTextoVazio(){
     let valor = document.getElementById('texto-digitado').value;
     return valor == '' || valor.trim() == '';//vazia e somente espaços em branco
@@ -69,35 +69,34 @@ function isTextoVazio(){
 
 function descriptografar(){
     limparImagemETexto();
-    mostrarBotaoCopiar();
-    margemTextoFinal();
+    // margemTextoFinal();
+    mostrarElemento('botao-copiar');
 
-    let textoDescriptografado = document.getElementById('texto-digitado').value;
+    let novoTexto = document.getElementById('texto-digitado').value;
 
-    textoDescriptografado = textoDescriptografado.replaceAll('ai', 'a');//pai pode virar pa
-    textoDescriptografado = textoDescriptografado.replaceAll('enter', 'e');    
-    textoDescriptografado = textoDescriptografado.replaceAll('imes', 'i');
-    textoDescriptografado = textoDescriptografado.replaceAll('ober', 'o');
-    textoDescriptografado = textoDescriptografado.replaceAll('ufat', 'u');
-
-    document.getElementById('texto-final').innerHTML = textoDescriptografado; 
-
+    novoTexto = novoTexto.replaceAll('ai', 'a');//pai pode virar pa
+    novoTexto = novoTexto.replaceAll('enter', 'e');    
+    novoTexto = novoTexto.replaceAll('imes', 'i');
+    novoTexto = novoTexto.replaceAll('ober', 'o');
+    novoTexto = novoTexto.replaceAll('ufat', 'u');
+    
+    document.getElementById('texto-final').innerHTML = novoTexto; 
 }
 
 function criptografar(){
-    margemTextoFinal();
-    limparImagemETexto();//fazer controle de exceção, campo sem texto
-    mostrarBotaoCopiar();
+    limparImagemETexto()
+    // margemTextoFinal();
+    mostrarElemento('botao-copiar');
     
     let textoSplitador = document.getElementById('texto-digitado').value.split("");
-    let textoDescriptografado = "";
+    let novoTexto = "";
 
     for (let i = 0; i < textoSplitador.length; i++) {
         let caractere = textoSplitador[i];
         
         caractere = trocarCaractere(caractere);//nem todos precisam entrar aqui, melhore
 
-        textoDescriptografado += caractere;
+        novoTexto += caractere;
     }
-    document.getElementById('texto-final').innerHTML = textoDescriptografado;
+    document.getElementById('texto-final').innerHTML = novoTexto;
 }
